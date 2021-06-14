@@ -1,4 +1,5 @@
 # RPC-Framework-Demo
+<<<<<<< HEAD
 
 简单实现RPC的框架的Demo
 
@@ -12,3 +13,6 @@
 4.Hessian
 
 
+=======
+简单实现RPC的框架
+>>>>>>> 4572c80 (Initial commit)
