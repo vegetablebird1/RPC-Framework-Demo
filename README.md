@@ -1,5 +1,4 @@
 # RPC-Framework-Demo
-<<<<<<< HEAD
 
 简单实现RPC的框架的Demo
 
@@ -10,9 +9,6 @@
 1.Kryo
 2.JSON
 3.ProtoBuf
-4.Hessian
+4.Hessiam
 
 
-=======
-简单实现RPC的框架
->>>>>>> 4572c80 (Initial commit)
