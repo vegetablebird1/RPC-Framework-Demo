@@ -2,6 +2,7 @@ package transport;
 
 import com.ming.entity.RpcRequest;
 import com.ming.entity.RpcResponse;
+import com.ming.util.RpcResultChecker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import transport.netty.client.NettyClient;
@@ -45,17 +46,19 @@ public class RpcClientProxy implements InvocationHandler {
                 method.getParameterTypes(),
                 false);
 
+        //发生调用请求
         RpcResponse rpcResponse = null;
-        try {
-            if (rpcClient instanceof NettyClient) {
+        if (rpcClient instanceof NettyClient) {
+            try {
                 CompletableFuture<RpcResponse> future = (CompletableFuture<RpcResponse>) rpcClient.sendRequest(rpcRequest);
                 rpcResponse = future.get();
+            } catch (InterruptedException | ExecutionException e) {
+                LOGGER.error("调用远程方法失败", e);
+                return null;
             }
-        } catch (InterruptedException | ExecutionException e) {
-            LOGGER.error("调用远程方法失败",e);
-            return null;
         }
 
-        return rpcResponse == null ? null : rpcResponse.getData();
+        RpcResultChecker.checkResult(rpcRequest,rpcResponse);
+        return rpcResponse.getData();
     }
 }

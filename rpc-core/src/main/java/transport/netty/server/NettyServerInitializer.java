@@ -33,9 +33,9 @@ public class NettyServerInitializer extends ChannelInitializer<SocketChannel> {
         //心跳机制处理器
         pipeline.addLast(new IdleStateHandler(10,0,0, TimeUnit.SECONDS));
 
-        pipeline.addLast(new CommonDecoder());
-
         pipeline.addLast(new CommonEncoder(serializer));
+
+        pipeline.addLast(new CommonDecoder());
 
         pipeline.addLast(new NettyServerHandler());
     }

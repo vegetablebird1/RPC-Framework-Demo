@@ -14,7 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class UnprocessedRequest {
 
     //任务完成结果为RpcResponse,存入map中
-    private static final ConcurrentHashMap<String, CompletableFuture<RpcResponse>> unprocessedResponseFutures = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<String, CompletableFuture<RpcResponse>> unprocessedResponseFutures = new ConcurrentHashMap<>();
 
     public void put(String requestId,CompletableFuture<RpcResponse> future) {
         unprocessedResponseFutures.put(requestId,future);

@@ -27,11 +27,11 @@ public class NettyClientInitializer extends ChannelInitializer<SocketChannel> {
     protected void initChannel(SocketChannel ch) throws Exception {
         ChannelPipeline pipeline = ch.pipeline();
 
+        pipeline.addLast(new CommonEncoder(serializer));
+
         pipeline.addLast(new IdleStateHandler(0,5,0, TimeUnit.SECONDS));
 
         pipeline.addLast(new CommonDecoder());
-
-        pipeline.addLast(new CommonEncoder(serializer));
 
         pipeline.addLast(new NettyClientHandler());
 
