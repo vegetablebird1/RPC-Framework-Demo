@@ -5,6 +5,7 @@ import com.ming.serializer.AbstractSerializer;
 import com.ming.serializer.KryoSerializer;
 
 import java.nio.charset.StandardCharsets;
+import java.util.concurrent.*;
 
 /**
  * @author ming
@@ -24,6 +25,32 @@ public class Test {
         Object o = serializer.deserialize(bytes, RpcRequest.class);
 
         System.out.println(o);
+
+    //     CompletableFuture<Integer> future = CompletableFuture.supplyAsync(() -> {
+    //         System.out.println("开始...");
+    //         try {
+    //             TimeUnit.SECONDS.sleep(2);
+    //             System.out.println("结束");
+    //             return 2;
+    //         } catch (InterruptedException e) {
+    //             e.printStackTrace();
+    //         }
+    //         return 3;
+    //     });
+    //
+    //     try {
+    //         TimeUnit.SECONDS.sleep(1);
+    //     } catch (InterruptedException e) {
+    //         e.printStackTrace();
+    //     }
+    //     future.completeExceptionally(new RuntimeException("gg"));
+    //
+    //     try {
+    //         System.out.println(future.get());
+    //     } catch (InterruptedException | ExecutionException e) {
+    //         e.printStackTrace();
+    //     }
+
 
     }
 

@@ -1,4 +1,4 @@
-package com.ming.api.impl;
+package impl;
 
 import com.ming.api.HelloObject;
 import com.ming.api.HelloService;

@@ -30,11 +30,9 @@ public class JsonSerializer extends AbstractSerializer {
     public Object deserialize(byte[] bytes, Class<?> clazz) {
         Object obj = JSONObject.parseObject(bytes, clazz);
         if (obj instanceof RpcRequest) {
-            return handlerRequest(obj);
-        } else {
-            LOGGER.error("Json序列化出错!");
-            throw new SerializeException("Json序列化出错!");
+            obj = handlerRequest(obj);
         }
+        return obj;
     }
 
 
