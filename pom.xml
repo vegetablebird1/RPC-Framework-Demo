@@ -11,6 +11,8 @@
         <module>rpc-api</module>
         <module>rpc-common</module>
         <module>rpc-core</module>
+        <module>test-client</module>
+        <module>test-server</module>
     </modules>
     <packaging>pom</packaging>
 

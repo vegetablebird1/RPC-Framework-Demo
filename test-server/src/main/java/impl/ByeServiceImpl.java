@@ -1,4 +1,4 @@
-package com.ming.api.impl;
+package impl;
 
 import com.ming.api.ByeService;
 import org.slf4j.Logger;

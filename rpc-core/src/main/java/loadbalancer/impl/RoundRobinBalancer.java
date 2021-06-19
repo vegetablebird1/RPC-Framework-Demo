@@ -12,6 +12,7 @@ import java.util.List;
 
 public class RoundRobinBalancer implements LoadBalancer {
 
+    //存在共享数据，不能使用单例工厂
     private int index = 0;
 
     @Override

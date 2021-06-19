@@ -8,6 +8,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;
 
 /**
+ * 通用编码器
  * @author ming
  * @data 2021/6/15 20:27
  */
