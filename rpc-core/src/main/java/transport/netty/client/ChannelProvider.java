@@ -56,7 +56,7 @@ public class ChannelProvider {
 
         //不存在key,创建通道并把channel放入map中
         //给客户端设置handler
-        bootstrap.handler(new NettyServerInitializer(serializer));
+        bootstrap.handler(new NettyClientInitializer(serializer));
 
         Channel channel = null;
         try {

@@ -98,9 +98,7 @@ public class NettyClient implements RpcClient {
                 } else {
                     future1.channel().close();
 
-
                     future.completeExceptionally(future1.cause());
-
 
                     LOGGER.error("客户端发生消息时发生错误:",future1.cause());
                 }
@@ -112,7 +110,7 @@ public class NettyClient implements RpcClient {
         }
 
 
-        //?有什么含义
+        //返回执行的future
         return future;
     }
 }

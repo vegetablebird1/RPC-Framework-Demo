@@ -55,7 +55,7 @@ public class NettyServer extends AbstractRpcServer {
 
     private void start0(String hostname,int port){
         ShutdownHook.getShutdownHook().addClearAllHook();
-        EventLoopGroup bossGroup = new NioEventLoopGroup(1);
+        EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workerGroup = new NioEventLoopGroup();
 
         try {

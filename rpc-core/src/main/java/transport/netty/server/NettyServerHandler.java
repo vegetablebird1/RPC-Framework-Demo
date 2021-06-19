@@ -1,8 +1,10 @@
 package transport.netty.server;
 
+import com.alibaba.fastjson.JSON;
 import com.ming.entity.RpcRequest;
 import com.ming.entity.RpcResponse;
 import com.ming.factory.SingletonFactory;
+import com.ming.serializer.JsonSerializer;
 import handler.RequestHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -34,7 +36,7 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<RpcRequest> 
     protected void channelRead0(ChannelHandlerContext ctx, RpcRequest msg) throws Exception {
         try {
             if (msg.getIsHeartBeat()) {
-                LOGGER.info("接收到客户端的心跳包...");
+                LOGGER.info("接收到客户端 [{}] 的心跳包...",ctx.channel().remoteAddress());
                 return;
             }
 
@@ -45,7 +47,7 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<RpcRequest> 
 
             if (ctx.channel().isActive() && ctx.channel().isWritable()) {
 
-                //到这里肯定，result不为空，因为如果为null，requesHandler已经抛异常了
+                //到这里肯定，result不为空，因为如果为null，requestHandler已经抛异常了
                 //**把结果封装**
 
                 RpcResponse success = RpcResponse.success(msg.getRequestId(), result);
