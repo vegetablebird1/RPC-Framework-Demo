@@ -15,7 +15,7 @@ public class NettyClientTest {
 
     public static void main(String[] args) {
 
-        RpcClient client = new NettyClient(AbstractSerializer.DEFAULT_SERIALIZER);
+        RpcClient client = new NettyClient(AbstractSerializer.HESSIAN_SERIALIZER);
         RpcClientProxy proxy = new RpcClientProxy(client);
 
         HelloService service = proxy.getProxyInstance(HelloService.class);
