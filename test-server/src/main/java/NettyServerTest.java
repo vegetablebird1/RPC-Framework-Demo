@@ -26,7 +26,7 @@ public class NettyServerTest {
 
         InetSocketAddress address = new InetSocketAddress(hostname, port);
 
-        RpcServer server = new NettyServer(address, AbstractSerializer.JSON_SERIALIZER);
+        RpcServer server = new NettyServer(address, AbstractSerializer.HESSIAN_SERIALIZER);
 
         /*---------------手动注册服务-----------------------*/
         server.publishService(new HelloServiceImpl(),HelloService.class.getName());
