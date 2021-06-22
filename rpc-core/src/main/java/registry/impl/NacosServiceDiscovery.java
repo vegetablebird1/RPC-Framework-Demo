@@ -15,6 +15,7 @@ import java.net.InetSocketAddress;
 import java.util.List;
 
 /**
+ * 负载均衡策略默认为轮询
  * @author ming
  * @data 2021/6/15 22:19
  */
