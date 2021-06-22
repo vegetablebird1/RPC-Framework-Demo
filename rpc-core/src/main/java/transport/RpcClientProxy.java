@@ -6,6 +6,7 @@ import com.ming.util.RpcResultChecker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import transport.netty.client.NettyClient;
+import transport.socket.client.SocketClient;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -56,6 +57,8 @@ public class RpcClientProxy implements InvocationHandler {
                 LOGGER.error("调用远程方法失败", e);
                 return null;
             }
+        } else if (rpcClient instanceof SocketClient) {
+            rpcResponse = (RpcResponse) rpcClient.sendRequest(rpcRequest);
         }
 
         RpcResultChecker.checkResult(rpcRequest,rpcResponse);

@@ -2,10 +2,8 @@ import com.alibaba.nacos.api.exception.NacosException;
 import com.ming.api.ByeService;
 import com.ming.api.HelloService;
 import com.ming.serializer.AbstractSerializer;
-import com.ming.util.NacosUtil;
 import impl.ByeServiceImpl;
 import impl.HelloServiceImpl;
-import registry.impl.NacosServiceRegistry;
 import transport.RpcServer;
 import transport.netty.server.NettyServer;
 
@@ -19,6 +17,8 @@ import java.net.InetSocketAddress;
 public class NettyServerTest {
 
     private static final String hostname = "127.0.0.1";
+
+    private static final String remote = "47.107.36.140";
 
     private static final int port = 6666;
 
