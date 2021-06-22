@@ -1,9 +1,8 @@
+package test;
+
+import annotain.ServiceScan;
 import com.alibaba.nacos.api.exception.NacosException;
-import com.ming.api.ByeService;
-import com.ming.api.HelloService;
 import com.ming.serializer.AbstractSerializer;
-import impl.ByeServiceImpl;
-import impl.HelloServiceImpl;
 import transport.RpcServer;
 import transport.netty.server.NettyServer;
 
@@ -14,6 +13,7 @@ import java.net.InetSocketAddress;
  * @data 2021/6/18 23:37
  */
 
+@ServiceScan
 public class NettyServerTest {
 
     private static final String hostname = "127.0.0.1";
@@ -28,11 +28,11 @@ public class NettyServerTest {
 
         RpcServer server = new NettyServer(address, AbstractSerializer.HESSIAN_SERIALIZER);
 
-        /*---------------手动注册服务-----------------------*/
-        server.publishService(new HelloServiceImpl(),HelloService.class.getName());
-
-        server.publishService(new ByeServiceImpl(), ByeService.class.getName());
-        /*------------------------------------------------*/
+        // /*---------------手动注册服务-----------------------*/
+        // server.publishService(new HelloServiceImpl(),HelloService.class.getName());
+        //
+        // server.publishService(new ByeServiceImpl(), ByeService.class.getName());
+        // /*------------------------------------------------*/
 
         server.start();
     }

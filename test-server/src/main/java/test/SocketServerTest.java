@@ -1,9 +1,6 @@
-import com.ming.api.ByeService;
-import com.ming.api.HelloService;
-import impl.ByeServiceImpl;
-import impl.HelloServiceImpl;
-import provider.ServiceProvider;
-import registry.impl.NacosServiceRegistry;
+package test;
+
+import annotain.ServiceScan;
 import transport.RpcServer;
 import transport.socket.server.SocketServer;
 
@@ -14,6 +11,7 @@ import java.net.InetSocketAddress;
  * @data 2021/6/21 13:26
  */
 
+@ServiceScan
 public class SocketServerTest {
 
     public static final String hostname = "127.0.0.1";
@@ -24,9 +22,9 @@ public class SocketServerTest {
 
         SocketServer socketServer = new SocketServer(new InetSocketAddress(hostname, port), RpcServer.DEFAULT_SERIALIZER);
 
-        socketServer.publishService(new HelloServiceImpl(), HelloService.class.getName());
-
-        socketServer.publishService(new ByeServiceImpl(), ByeService.class.getName());
+        // socketServer.publishService(new HelloServiceImpl(), HelloService.class.getName());
+        //
+        // socketServer.publishService(new ByeServiceImpl(), ByeService.class.getName());
 
         socketServer.start();
 

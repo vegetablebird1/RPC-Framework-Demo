@@ -1,3 +1,4 @@
+import annotain.ServiceScan;
 import com.ming.api.ByeService;
 import com.ming.api.HelloObject;
 import com.ming.api.HelloService;

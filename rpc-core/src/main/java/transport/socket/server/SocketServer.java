@@ -45,6 +45,8 @@ public class SocketServer extends AbstractRpcServer {
         this.serviceProvider = new ServiceProviderImpl();
         this.serializer = AbstractSerializer.getSerializerByCode(serializer);
         this.requestHandler = new RequestHandler();
+
+        scanServices();
     }
 
     @Override

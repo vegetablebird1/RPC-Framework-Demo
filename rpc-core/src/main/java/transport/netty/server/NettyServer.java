@@ -44,6 +44,8 @@ public class NettyServer extends AbstractRpcServer {
 
         this.serviceRegistry = new NacosServiceRegistry();
         this.serviceProvider = new ServiceProviderImpl();
+
+        scanServices();
     }
 
 
