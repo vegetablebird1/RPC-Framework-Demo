@@ -2,9 +2,9 @@
 
 简单实现RPC的框架的Demo
 
-简单利用Nacos作为服务注册和发现中心，实现RPC应用，Netty作为通信框架，利用BIO方式进行收发信息。
+简单利用Nacos作为服务注册和发现中心，实现RPC应用，Netty作为通信框架，利用BIO方式进行收发信息，也支持使用NIO模式的Socket方式进行RPC调用服务。
 
-test
+
 
 # 框架序列化方式
 
