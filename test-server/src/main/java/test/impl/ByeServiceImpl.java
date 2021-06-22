@@ -1,5 +1,6 @@
-package impl;
+package test.impl;
 
+import annotain.Service;
 import com.ming.api.ByeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,6 +10,7 @@ import org.slf4j.LoggerFactory;
  * @data 2021/6/14 21:37
  */
 
+@Service
 public class ByeServiceImpl implements ByeService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ByeServiceImpl.class);

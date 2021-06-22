@@ -1,5 +1,6 @@
-package impl;
+package test.impl;
 
+import annotain.Service;
 import com.ming.api.HelloObject;
 import com.ming.api.HelloService;
 import org.slf4j.Logger;
@@ -10,6 +11,7 @@ import org.slf4j.LoggerFactory;
  * @data 2021/6/14 21:34
  */
 
+@Service
 public class HelloServiceImpl implements HelloService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(HelloServiceImpl.class);
