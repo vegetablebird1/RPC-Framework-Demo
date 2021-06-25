@@ -4,6 +4,7 @@ import com.ming.api.HelloService;
 import com.ming.serializer.AbstractSerializer;
 import transport.RpcClient;
 import transport.RpcClientProxy;
+import transport.RpcClientProxyCglib;
 import transport.netty.client.NettyClient;
 
 /**
@@ -19,6 +20,11 @@ public class NettyClientTest {
         RpcClientProxy proxy = new RpcClientProxy(client);
 
         HelloService service = proxy.getProxyInstance(HelloService.class);
+
+        /*------------------Cglib方式---------------*/
+        // RpcClientProxyCglib proxy = new RpcClientProxyCglib(client);
+        // HelloService service = proxy.getProxyInstance(HelloService.class);
+
         HelloObject object = new HelloObject(777,"Hello,world");
         String res = service.hello(object);
         System.out.println(res);

@@ -4,6 +4,7 @@ import com.ming.api.HelloObject;
 import com.ming.api.HelloService;
 import transport.RpcClient;
 import transport.RpcClientProxy;
+import transport.RpcClientProxyCglib;
 import transport.socket.client.SocketClient;
 
 /**
@@ -17,8 +18,11 @@ public class SocketClientTest {
 
         SocketClient socketClient = new SocketClient(RpcClient.DEFAULT_SERIALIZER);
 
-        RpcClientProxy proxy = new RpcClientProxy(socketClient);
+        // RpcClientProxy proxy = new RpcClientProxy(socketClient);
+        //
+        // HelloService helloService = proxy.getProxyInstance(HelloService.class);
 
+        RpcClientProxyCglib proxy = new RpcClientProxyCglib(socketClient);
         HelloService helloService = proxy.getProxyInstance(HelloService.class);
 
         HelloObject helloObject = new HelloObject(777,"hello,world!");
